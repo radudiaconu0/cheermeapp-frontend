@@ -32,12 +32,7 @@
 </template>
 
 <script lang="ts">
-import {
-  defineComponent,
-  reactive,
-  onMounted,
-  useContext,
-} from '@nuxtjs/composition-api'
+import { defineComponent, reactive, useContext } from '@nuxtjs/composition-api'
 
 export default defineComponent({
   auth: 'guest',
@@ -52,9 +47,6 @@ export default defineComponent({
       email: '',
       password: '',
       password_confirmation: '',
-    })
-    onMounted(() => {
-      console.log(state)
     })
     const resetPassword = async () => {
       try {

@@ -46,6 +46,7 @@ export default {
     credentials: true,
   },
   auth: {
+    plugins: ['~/plugins/laravel-fortify.ts'],
     redirect: {
       home: '/home',
       login: '/login',
@@ -53,11 +54,9 @@ export default {
     },
     strategies: {
       laravelSanctum: {
-        provider: 'laravel/sanctum',
+        scheme: '~/schemes/laravel-fortify',
+        provider: 'laravelSanctum',
         url: 'http://cheermeapp.test',
-        user: {
-          autoFetch: true,
-        },
         endpoints: {
           login: { url: '/api/login', method: 'post' },
           logout: { url: '/api/logout', method: 'post' },
