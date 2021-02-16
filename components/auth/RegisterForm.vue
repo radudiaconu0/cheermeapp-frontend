@@ -112,7 +112,7 @@ import { defineComponent, reactive, useContext } from '@nuxtjs/composition-api'
 export default defineComponent({
   name: 'RegisterForm',
   setup(_, { root }) {
-    const { $axios } = useContext()
+    const { $auth } = useContext()
     const state = reactive({
       menu: false,
       errors: [],
@@ -129,10 +129,15 @@ export default defineComponent({
     })
     const register = async () => {
       try {
-        await $axios.$get('sanctum/csrf-cookie')
-        await $axios.$post('api/register', {
-          ...formInput,
+        // await $axios.$get('sanctum/csrf-cookie')
+        // await $axios.$post('api/register', {
+        //   ...formInput,
+        // })
+
+        await $auth.register('laravelSanctum', {
+          data: formInput,
         })
+
         root.$router.push('/login')
       } catch (e) {
         state.errors = e.response.data.errors

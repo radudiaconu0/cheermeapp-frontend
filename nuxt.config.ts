@@ -1,6 +1,9 @@
 import colors from 'vuetify/es5/util/colors'
+import { defineNuxtConfig } from '@nuxtjs/composition-api'
 
-export default {
+// @ts-ignore
+// @ts-ignore
+export default defineNuxtConfig({
   head: {
     titleTemplate: '%s - cheermeapp',
     title: 'cheermeapp',
@@ -74,6 +77,7 @@ export default {
     customVariables: ['~/assets/variables.scss'],
     theme: {
       dark: true,
+      // @ts-ignore
       themes: {
         dark: {
           primary: colors.blue.darken2,
@@ -90,4 +94,4 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
-}
+})

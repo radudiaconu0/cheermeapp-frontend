@@ -22,27 +22,29 @@ import {
   reactive,
   ssrRef,
   useContext,
+  useRoute,
 } from '@nuxtjs/composition-api'
 
 export default defineComponent({
   layout: 'auth',
   middleware: 'auth',
-  setup(_, { root }) {
-    const { $axios } = useContext()
+  setup() {
+    const { $auth } = useContext()
+    const route = useRoute()
     const loading = ssrRef(true)
     const error = reactive({
       isError: false,
       message: null,
     })
     const params = reactive({
-      hash: root.$route.params.hash,
-      id: root.$route.params.id,
-      expires: root.$route.query.expires,
-      signature: root.$route.query.signature,
+      hash: route.value.params.hash,
+      id: route.value.params.hash,
+      expires: route.value.params.hash,
+      signature: route.value.params.signature,
     })
     onMounted(async () => {
       try {
-        await $axios.$get(`/api/email/verify/${params.id}/${params.hash}`, {
+        await $auth.emailVerify('laravelSanctum', params.id, params.hash, {
           params: {
             expires: params.expires,
             signature: params.signature,

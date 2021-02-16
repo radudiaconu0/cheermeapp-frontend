@@ -11,8 +11,8 @@
           label="E-mail"
         ></v-text-field>
         <v-alert v-if="state.emailSent" type="success"
-          >Email sent successfully</v-alert
-        >
+          >Reset email sent successfully
+        </v-alert>
         <v-btn type="submit">Reset</v-btn>
       </v-form>
     </v-card-text>
@@ -25,7 +25,7 @@ import { defineComponent, reactive, useContext } from '@nuxtjs/composition-api'
 export default defineComponent({
   name: 'ForgotPasswordForm',
   setup() {
-    const { $axios } = useContext()
+    const { $auth } = useContext()
     const state = reactive({
       email: '',
       emailSent: false,
@@ -33,8 +33,12 @@ export default defineComponent({
     })
     const reset = async () => {
       try {
-        await $axios.$get('sanctum/csrf-cookie')
-        await $axios.$post('api/forgot-password', { email: state.email })
+        // await $axios.$get('sanctum/csrf-cookie')
+        // await $axios.$post('api/forgot-password', { email: state.email })
+
+        await $auth.forgotPassword('laravelSanctum', {
+          data: { email: state.email },
+        })
         state.emailSent = true
       } catch (e) {
         state.errors = e.response.data.errors

@@ -11,7 +11,7 @@
         ></v-text-field>
         <v-checkbox
           v-model="state.useRecoveryCode"
-          label="use recovery code"
+          label="Use recovery code"
         ></v-checkbox>
         <v-btn type="submit">Verify</v-btn>
       </v-form>
@@ -53,10 +53,9 @@ export default defineComponent({
         } else {
           data.code = code.value
         }
-
         await $auth.twoFactorChallenge({ data })
       } catch (e) {
-        console.log(e)
+        state.errors = e.response.data.errors
       } finally {
         state.loading = false
       }
