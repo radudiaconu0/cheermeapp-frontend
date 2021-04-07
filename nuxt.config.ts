@@ -1,8 +1,6 @@
-import colors from 'vuetify/es5/util/colors'
 import { defineNuxtConfig } from '@nuxtjs/composition-api'
+import colors from 'vuetify/es5/util/colors'
 
-// @ts-ignore
-// @ts-ignore
 export default defineNuxtConfig({
   head: {
     titleTemplate: '%s - cheermeapp',
@@ -34,15 +32,17 @@ export default defineNuxtConfig({
     // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
     '@nuxtjs/composition-api',
+    '@nuxtjs/laravel-echo',
   ],
-
+  echo: {
+    optionsPath: './laravel-echo/options.js',
+  },
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
     '@nuxtjs/auth-next',
   ],
-
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     baseURL: 'http://cheermeapp.test/',

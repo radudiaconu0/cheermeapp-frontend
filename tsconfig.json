@@ -29,6 +29,8 @@
       "@types/node",
       "@nuxtjs/vuetify",
       "@nuxtjs/auth-next",
+      "@nuxtjs/laravel-echo",
+      "@nuxtjs/composition-api"
     ]
   },
   "exclude": [

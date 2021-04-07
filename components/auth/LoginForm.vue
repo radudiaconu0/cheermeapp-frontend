@@ -41,14 +41,17 @@ interface LoginForm {
   password: string
   remember: boolean
 }
-
+interface LoginErrors {
+  email: string[]
+  password: string[]
+}
 export default defineComponent({
   name: 'LoginForm',
   components: { TwoFALogin },
   setup() {
     const { $auth } = useContext()
     const state = reactive({
-      errors: [],
+      errors: {} as LoginErrors,
       loading: false,
     })
     const loginData = reactive<LoginForm>({
@@ -57,7 +60,6 @@ export default defineComponent({
       remember: false,
     })
     const login = async () => {
-      state.errors = []
       state.loading = true
 
       try {
