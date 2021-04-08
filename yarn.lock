@@ -1572,10 +1572,10 @@
     consola "^2.15.0"
     eslint-webpack-plugin "^2.4.1"
 
-"@nuxtjs/laravel-echo@^2.0.0-alpha.4":
-  version "2.0.0-alpha.4"
-  resolved "https://registry.yarnpkg.com/@nuxtjs/laravel-echo/-/laravel-echo-2.0.0-alpha.4.tgz#cc5249ae453bf51090dcfa78ee4d13f561b2d683"
-  integrity sha512-8IKzqpccU0E7hiRNH5m7VXQ7rL9hVR4RxoKKi9yyM4EEXb1H1pPq1jdKnOf2eA+KLTkNx87yaOwZE0AgFzmuwQ==
+"@nuxtjs/laravel-echo@^2.0.0-alpha.5":
+  version "2.0.0-alpha.5"
+  resolved "https://registry.yarnpkg.com/@nuxtjs/laravel-echo/-/laravel-echo-2.0.0-alpha.5.tgz#172936d50791221929aacb7d80863f5a7aad4e8b"
+  integrity sha512-GuP1Ze344owo/2UlMXsrXn+E8et0Xfc9lrJ3JRwm6FK6vPUYWCdaIiMUCVjpw5ZChMaaBbkDykp6u9jiOaIMyA==
   dependencies:
     defu "^3.2.2"
     laravel-echo "^1.10.0"
