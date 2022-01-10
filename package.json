@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@nuxt/typescript-runtime": "^2.1.0",
-    "@nuxtjs/auth-next": "5.0.0-1616003482.75c20e6",
+    "@nuxtjs/auth-next": "5.0.0-1641544397.1af946a",
     "@nuxtjs/axios": "^5.13.1",
     "@nuxtjs/composition-api": "^0.22.4",
     "@nuxtjs/laravel-echo": "^2.0.0-alpha.4",
